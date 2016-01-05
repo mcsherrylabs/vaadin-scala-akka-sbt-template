@@ -16,11 +16,15 @@ object FeedbackPanel {
     val rhsLayout = new VerticalLayout
     rhsLayout.setSizeFull
 
+    val resetBtn = new Button("Clear Panel", uiReactor)
+
+    /*
+    Or use ...
     val resetBtn = new Button("Clear Panel")
+    resetBtn.addClickListener(uiReactor)
+    */
 
     resetBtn.setWidth("100%")
-
-    resetBtn.addClickListener(uiReactor)
 
     textArea.setWordwrap(true)
     textArea.setSizeFull

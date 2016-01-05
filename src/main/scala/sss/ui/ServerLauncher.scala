@@ -3,10 +3,6 @@ package sss.ui
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.servlet.ServletContextHandler
 
-/**
- * Created by alan on 12/8/15.
- */
-
 class ServerLauncher(port: Int, contextPath: String) {
 
   val server: Server = new Server(port)

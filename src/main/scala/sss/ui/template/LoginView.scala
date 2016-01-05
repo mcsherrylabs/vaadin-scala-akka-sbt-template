@@ -21,20 +21,20 @@ class LoginView(mainView: String, uiReactor: UIReactor) extends CustomComponent 
   private val loginButton = new Button("Login")
   private val fields = new VerticalLayout(user, password, loginButton)
 
-  user.setWidth("300px");
-  user.setRequired(true);
-  user.setInputPrompt("Your username ");
+  user.setWidth("300px")
+  user.setRequired(true)
+  user.setInputPrompt("Your username ")
 
-  password.setWidth("300px");
-  password.addValidator(PasswordValidator);
-  password.setRequired(true);
-  password.setValue("");
-  password.setNullRepresentation("");
+  password.setWidth("300px")
+  password.addValidator(PasswordValidator)
+  password.setRequired(true)
+  password.setValue("")
+  password.setNullRepresentation("")
 
-  fields.setCaption("Please login .... ");
+  fields.setCaption("Please login (user/password1).... ")
   fields.setSpacing(true);
-  fields.setMargin(new MarginInfo(true, true, true, false));
-  fields.setSizeUndefined();
+  fields.setMargin(new MarginInfo(true, true, true, false))
+  fields.setSizeUndefined()
 
   val viewLayout = new VerticalLayout(fields)
   viewLayout.setSizeFull
@@ -66,20 +66,11 @@ class LoginView(mainView: String, uiReactor: UIReactor) extends CustomComponent 
 
   private def login() {
 
-    //
-    // Validate the fields using the navigator. By using validors for the
-    // fields we reduce the amount of queries we have to use to the database
-    // for wrongly entered passwords
-    //
     if (user.isValid() && password.isValid()) {
 
       val usernameStr = user.getValue();
-      val passwordStr = this.password.getValue();
+      val passwordStr = this.password.getValue()
 
-      //
-      // Validate username and password with database here. For examples sake
-      // I use a dummy username and password.
-      //
       val confUser = "user"
       val confPass = "password1"
       val isValid = usernameStr == confUser && passwordStr == confPass
@@ -91,11 +82,8 @@ class LoginView(mainView: String, uiReactor: UIReactor) extends CustomComponent 
         getUI.getNavigator.navigateTo(mainView)
 
       } else {
-
-        // Wrong password clear the password field and refocuses it
-        password.setValue(null);
-        password.focus();
-
+        password.setValue(null)
+        password.focus()
       }
     }
   }
