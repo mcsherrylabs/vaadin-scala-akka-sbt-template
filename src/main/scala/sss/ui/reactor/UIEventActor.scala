@@ -25,6 +25,7 @@ abstract class UIEventActor extends Actor with ActorLogging {
     case l: ListenTo => reactor ! l
     case s: StopListeningTo => reactor ! s
 
+    // TODO remove this to prevent other Actors sending closures and breaking encapsulation.
     case Push(f) => ui.access(new Runnable {
       def run = Try { f() } match {
         case Failure(x) => log.error(x, "Failed to push changes to ui!")
