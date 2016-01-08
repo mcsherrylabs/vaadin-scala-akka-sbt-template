@@ -46,7 +46,10 @@ Because the actor is completely reactive and not bound to any browser request, a
 ``` sbt run ``` will run the server at ```localhost:8080/template```
   
 There is also a command line tool to further demonstrate the broadcast capability.
-``` sbt "test:run  logout OUT!"``` will send an AKKA message to the server which the broadcasts a logout category message to anything registered for that category. 
+
+``` sbt "test:run  logout OUT!"``` will send an AKKA message to the server which the broadcasts a logout category message to anything registered for that category.
+
 In this case the LogoutListenerActor is registered for that category and will react to it by logging out all users.
+
 ``` sbt "test:run  msg Hello!"``` is a "sss.ui.template.feedback" category event and will appear on the text area.
  
