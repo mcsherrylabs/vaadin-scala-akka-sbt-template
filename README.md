@@ -47,7 +47,7 @@ Because the actor is completely reactive and not bound to any browser request, a
   
 There is also a command line tool to further demonstrate the broadcast capability.
 
-``` sbt "test:run  logout OUT!"``` will send an AKKA message to the server which the broadcasts a logout category message to anything registered for that category.
+``` sbt "test:run  logout OUT!"``` will send an AKKA message to the server which then broadcasts a logout category message to anything registered for that category.
 
 In this case the LogoutListenerActor is registered for that category and will react to it by logging out all users.
 
